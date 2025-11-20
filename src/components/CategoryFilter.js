@@ -1,10 +1,18 @@
 import React from "react";
 
-function CategoryFilter() {
+function CategoryFilter({ categories, selected, onSelectCategory }) {
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {/* render <button> elements for each category here */}
+      {categories.map((cat) => (
+        <button
+          key={cat}
+          className={cat === selected ? "selected" : ""}
+          onClick={() => onSelectCategory(cat)}
+        >
+          {cat}
+        </button>
+      ))}
     </div>
   );
 }
